@@ -4,7 +4,7 @@ describe("About Applying What We Have Learnt", function() {
 
   var products;
 
-  beforeEach(function () { 
+  beforeEach(function () {
     products = [
        { name: "Sonoma", ingredients: ["artichoke", "sundried tomatoes", "mushrooms"], containsNuts: false },
        { name: "Pizza Primavera", ingredients: ["roma", "sundried tomatoes", "goats cheese", "rosemary"], containsNuts: false },
@@ -32,7 +32,7 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+    expect(productsICanEat.length).toBe(2);
   });
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
@@ -40,22 +40,25 @@ describe("About Applying What We Have Learnt", function() {
       var productsICanEat = [];
 
       /* solve using filter() & all() / any() */
+      for (var i = 0; i < products.length; i++) {
+        productsICanEat.push(product[i].containsNuts.filter(i => i == false).ingredients.filter(ingred => ingred.every(i => i !== "mushrooms")));
+      }
 
-      expect(productsICanEat.length).toBe(FILL_ME_IN);
+      expect(productsICanEat.length).toBe(2);
   });
 
   /*********************************************************************************/
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (imperative)", function () {
-    
+
     var sum = 0;
     for(var i=1; i<1000; i+=1) {
       if (i % 3 === 0 || i % 5 === 0) {
         sum += i;
       }
     }
-    
-    expect(sum).toBe(FILL_ME_IN);
+
+    expect(sum).toBe(233168);
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
@@ -75,7 +78,7 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it("should count the ingredient occurrence (functional)", function () {
@@ -90,20 +93,20 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR EXTRA CREDIT */
   /*
   it("should find the largest prime factor of a composite number", function () {
-  
+
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
-    
+
+
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+
   });
 
   it("should find the 10001st prime", function () {
